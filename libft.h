@@ -6,7 +6,7 @@
 /*   By: fdeville <fdeville@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 02:35:05 by fdeville          #+#    #+#             */
-/*   Updated: 2025/10/20 12:46:32 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/10/20 13:50:50 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ t_list			*ft_lstlast(t_list *lst);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
+					void (*del)(void *));
 /* MANDATORY */
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);

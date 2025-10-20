@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdeville <fdeville@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 11:35:09 by fdeville          #+#    #+#             */
-/*   Updated: 2025/10/20 13:35:15 by fdeville         ###   ########.fr       */
+/*   Created: 2025/10/20 13:33:07 by fdeville          #+#    #+#             */
+/*   Updated: 2025/10/20 14:04:52 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int		s;
-	t_list	*l;
+	t_list	*nl;
+	t_list	*c;
+	t_list	*n;
+	void	*content;
 
-	s = ft_lstsize(lst);
-	l = lst;
-	while (--s > 0)
-		l = l->next;
-	return (l);
+	nl = NULL;
+	c = lst;
+	while (c)
+	{
+		if (f)
+			content = f(c->content);
+		else
+			content = c->content;
+		n = ft_lstnew(content);
+		if (!n)
+		{
+			ft_lstdelone(n, del);
+			ft_lstclear(&nl, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&nl, n);
+		c = c->next;
+	}
+	return (nl);
 }
