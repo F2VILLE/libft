@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
+/*   By: fdeville <fdeville@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 07:26:40 by fdeville          #+#    #+#             */
-/*   Updated: 2025/10/17 07:32:01 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/10/20 11:52:17 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "_bonus.h"
+#include "libft.h"
 #include <stdlib.h>
 
 t_list	*ft_lstnew(void *content)

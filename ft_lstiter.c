@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _bonus.h                                           :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdeville <fdeville@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 07:23:59 by fdeville          #+#    #+#             */
-/*   Updated: 2025/10/20 11:42:38 by fdeville         ###   ########.fr       */
+/*   Created: 2025/10/20 12:30:53 by fdeville          #+#    #+#             */
+/*   Updated: 2025/10/20 12:37:55 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _BONUS_H
-# define _BONUS_H
+#include "libft.h"
 
-# include "libft.h"
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	t_list	*c;
 
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-
-#endif
+	c = lst;
+	while (c)
+	{
+		f(c->content);
+		c = c->next;
+	}
+}
