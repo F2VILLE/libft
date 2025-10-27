@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
+/*   By: fdeville <fdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 23:32:08 by fdeville          #+#    #+#             */
-/*   Updated: 2025/10/17 07:35:04 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/10/27 20:22:00 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	*ft_calloc(size_t n, size_t size)
 	i = 0;
 	if (n == 0 || size == 0)
 	{
-		p = malloc(1);
+		p = malloc(0);
 		if (!p)
 			return (NULL);
 		return (p);
 	}
-	if (n > INT_MAX / size)
+	if ((n * size) / size != n)
 		return (NULL);
 	p = (unsigned char *)malloc(n * size);
 	if (!p)
