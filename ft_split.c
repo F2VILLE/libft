@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdeville <fdeville@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fdeville <fdeville@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 00:20:25 by fdeville          #+#    #+#             */
-/*   Updated: 2025/10/27 20:23:23 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/10/30 15:29:34 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		}
 		free(res);
+		return (NULL);
 	}
 	return (res);
 }

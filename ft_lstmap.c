@@ -6,7 +6,7 @@
 /*   By: fdeville <fdeville@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:33:07 by fdeville          #+#    #+#             */
-/*   Updated: 2025/10/20 14:04:52 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/10/30 15:29:23 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		n = ft_lstnew(content);
 		if (!n)
 		{
-			ft_lstdelone(n, del);
+			if (del)
+				del(content);
 			ft_lstclear(&nl, del);
 			return (NULL);
 		}
